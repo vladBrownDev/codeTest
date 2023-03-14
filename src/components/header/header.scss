@@ -1,11 +1,11 @@
 @import "/src/global.scss";
 
 header {
-  background-image: url("../../media/walchen.jpg");
   background-color: rgba(40, 39, 42, 0.5);
   background-blend-mode: multiply;
-  background-size: cover;
+  background-size:cover;
   height: 880px;
+  transition: all 0.4s ease-in;
   z-index: -1;
   #header__top {
     width: 100%;
@@ -53,7 +53,7 @@ header {
     justify-content: space-between;
     #header__navigation {
       height: 830px;
-      width: 270px;
+      min-width: 270px;
       background-color: rgba(40, 39, 42,0.8);
       padding-top: 85px;
       nav {
@@ -99,56 +99,101 @@ header {
       p:nth-child(4) {
         margin-bottom: 50px;
       }
-      #header__sliderNav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-right: 120px;
-        margin-top: 167px;
-        position: relative;
-        z-index: 1;
-        button {
-          width: 39px;
-          height: 39px;
-          border-radius: 20px;
-          background-blend-mode: multiply;
-          background-color: white;
-          border: none;
-          background-repeat: no-repeat;
-          background-image: url("../../media/arrow.svg");
-          background-size: 40%;
-          background-position: center;
-        }
-        button:nth-child(1) {
-          transform: scaleX(-1);
-          margin-right: 12px;
-        }
-        .header__line {
-          height: 2px;
-          background-color: white;
-          opacity: 0.4;
-          width: calc(100% - 370px);
-        }
-        .header__downText {
-          font-size: 12px;
-          //min-width: 110px;
-          //margin-left: 16px;
-          //margin-right: 24px;
-        }
-        .secondLine {
-          width: 21px;
-        }
-      }
+    }
+  }
+  .header__swiper {
+    margin-left: 100px;
+  }
+  #header__sliderNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 120px;
+    position: relative;
+    bottom: 103px;
+    width: 100%;
+    z-index: 1;
+    .header__line {
+      height: 2px;
+      background-color: white;
+      opacity: 0.4;
+      width: calc(100% - 370px);
+    }
+    .secondLine {
+      width: 21px;
+    }
+    .header__downText {
+      font-size: 12px;
     }
   }
 }
 header::after {
   display: inline-block;
   width: 100%;
-  height: 880px;
+  height: 881px;
   content: " ";
   background: linear-gradient(180deg, rgba(255,255,255,0) 80%, rgba(40,39,42,1) 96%);
   position: absolute;
   top: 0;
   z-index: 0;
+}
+
+@media screen and (max-width: 900px) {
+  header {
+    .header__swiper {
+      margin-left: 10px;
+      width: calc(96vw - 35px);
+      .swiper-slide {
+        width: calc(100vw - 35px) !important;
+      }
+    }
+    #header__top {
+      padding: 0;
+      #header__logo {
+        height: 50px;
+        font-size: 20px;
+        width: 100px;
+        padding-left: 20px;
+      }
+      a {
+        font-size: 10px;
+      }
+      #header__userInfo {
+        a {
+          margin: 0 20px;
+          display: flex;
+          align-items: center;
+        }
+        #header__avatar {
+          display: none;
+        }
+      }
+    }
+    #header__sliderNav {
+      display: none;
+    }
+    #header__main {
+      flex-direction: column;
+      #header__navigation {
+        height: 50px;
+        padding: 0;
+        display: flex;
+        nav {
+          display: flex;
+          height: inherit;
+          flex-direction: row;
+          align-items: center;
+          padding: 0;
+          justify-content: space-around;
+          a {
+            height: 20px;
+            font-size: 12px;
+          }
+          .header__activeLink::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }

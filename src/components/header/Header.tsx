@@ -1,10 +1,20 @@
-import React from 'react';
+import React, {SetStateAction, useState} from 'react';
 import "./header.scss"
-import ReadMoreBtn from "../common/ReadMoreBtn"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import PageButtons from "../common/PageButtons";
+import HeaderSlide from "./HeaderSlide";
+import CurrentSlide from "../common/CurrentSlide";
+import 'swiper/css';
+import slide1 from "../../media/walchen.jpg";
+import slide2 from "../../media/carousel1.jpg";
+import slide3 from "../../media/collage1.jpg";
+import slide4 from "../../media/collage2.jpg";
 
 function Header() {
+  let backgroundArr = [slide1, slide2, slide3, slide4,slide1, slide2, slide3, slide4]
+  const [backgroundNum, setBackgroundNum] = useState(0)
   return (
-    <header>
+    <header style={{backgroundImage: `url(${backgroundArr[backgroundNum]})`}}>
       <div id="header__top">
         <div id="header__logo">
           trppd_
@@ -25,25 +35,46 @@ function Header() {
             <a href="/">About Us</a>
           </nav>
         </div>
-        <div id="header__mainText">
-          <h1>The Walchen Lake</h1>
-          <p>One of the deepest and largest alpine lakes in Germany</p>
-          <p>and one the the best outdoors place </p>
-          <p>that you never imagine before</p>
-          <ReadMoreBtn />
+        <Swiper
+          className="header__swiper"
+          onSlideChange={(swiper) => setBackgroundNum(swiper.activeIndex)}
+        >
+          <SwiperSlide>
+            <HeaderSlide head={"The Walchen Lake"} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <HeaderSlide head={"Alpines Mountains"} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <HeaderSlide head={"Greek Mountains"} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <HeaderSlide head={"Ukrainian Mountains"} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <HeaderSlide head={"The Walchen Lake"} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <HeaderSlide head={"Alpines Mountains"} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <HeaderSlide head={"Greek Mountains"} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <HeaderSlide head={"Ukrainian Mountains"} />
+          </SwiperSlide>
           <div id="header__sliderNav">
             <span>
-              <button></button>
-              <button></button>
+              <PageButtons backgroundNum={backgroundNum} setBackgroundNum={(num: SetStateAction<number>) => setBackgroundNum(num)}/>
             </span>
             <span className="header__downText">Outdoors Edition</span>
             <span className="header__line"></span>
-            <span className="header__downText">2 / 8</span>
+            <CurrentSlide pages={"8"} />
             <span className="header__line secondLine"></span>
           </div>
-        </div>
-      </div>
+        </Swiper>
 
+      </div>
     </header>
   );
 }

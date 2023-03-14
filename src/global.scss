@@ -15,10 +15,33 @@ body {
 }
 .readMoreButton {
   width: 140px;
+  cursor: pointer;
   height: 40px;
   color: black;
   background-color: #FEE251;
   border: none;
   border-radius: 20px;
   font-weight: 700;
+}
+.pageButtons {
+  width: 39px;
+  height: 39px;
+  border-radius: 20px;
+  background-blend-mode: multiply;
+  background-color: white;
+  border: none;
+  background-repeat: no-repeat;
+  background-image: url("./media/arrow.svg");
+  background-size: 40%;
+  background-position: center;
+  cursor: pointer;
+}
+.pageButtons:nth-child(1) {
+  transform: scaleX(-1);
+  margin-right: 12px;
+}
+
+.currentSlide {
+  font-size: 12px;
+  font-weight: 600;
 }
