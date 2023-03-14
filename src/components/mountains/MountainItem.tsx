@@ -13,7 +13,7 @@ export default function MountainItem() {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolores doloribus dolorum ipsum quos, reprehenderit sequi sit unde voluptatibus!</p>
         <ReadMoreBtn />
       </div>
-      <img src={mountain} alt=""/>
+      <img src={mountain} alt="Mountain"/>
     </div>
   )
 }

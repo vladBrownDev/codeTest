@@ -21,12 +21,12 @@ function Collage() {
               <p>Ad lorem aliquid laoreet pri, possim irsque ad vim. Te graecis maiuisset eum. Sit no platonem consetetur mediocritatem, in alienum</p>
             </div>
           </div>
-          <img className="collageSection__smallPic" src={collage2} alt=""/>
-          <img className="collageSection__smallPic" src={collage3} alt=""/>
+          <img className="collageSection__smallPic" src={collage2} alt="Collage"/>
+          <img className="collageSection__smallPic" src={collage3} alt="Collage"/>
         </div>
         <div>
-          <img className="collageSection__smallPic" src={collage4} alt=""/>
-          <img className="collageSection__smallPic" style={{width:"600px"}} src={collage5} alt=""/>
+          <img className="collageSection__smallPic" src={collage4} alt="Collage"/>
+          <img className="collageSection__smallPic" style={{width:"600px"}} src={collage5} alt="Collage"/>
         </div>
       </div>
     </section>
